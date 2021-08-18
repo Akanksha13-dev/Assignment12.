@@ -1,0 +1,47 @@
+<div class="but">
+    <button (click)="retrieveUsers($event.target)" id='wer'>Load Data</button>
+    </div>
+    <div *ngIf="users">
+        <h1>Users Table</h1>
+        <table>
+           <thead>
+              <tr>
+               <th>ID</th>
+               <th>FirstName</th>
+               <th>MiddleName</th>
+               <th>LastName</th>
+               <th>Email</th>
+               <th>PhoneNumber</th> 
+               <th>Role</th> 
+               <th>Address</th> 
+               <th>DateTime</th>
+               <th>CustomerName</th>
+              </tr>
+           </thead>
+           <tbody>
+              
+               
+               <tr *ngFor="let item of users">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.firstName }}</td>
+                  <td>{{ item.middleName }}</td>
+                  <td>{{ item.lastName }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.phoneNumber }}</td>
+                  <td>{{ item.roles.name }}</td>
+                  <td>{{ item. address}}</td>
+                  <td>{{ item.datetime }}</td>
+                   <td >{{ item.customers.name }}</td> 
+                 
+                  
+                 <td>
+                    
+                    <button type="button" ><a routerLink="{{item.id}}" class="nav-link">Edit</a></button>
+                    <div class="container mt-3">
+                        <router-outlet></router-outlet>
+                      </div>
+                 </td>
+              </tr>
+           </tbody>
+        </table>
+     </div>
